@@ -1,0 +1,53 @@
+@startuml C4Container_StandardBank
+!include templates\C4_Container.puml
+
+title Диаграмма контейнеров - Банк "Стандарт"
+
+Person(client, "Клиент", "Физическое лицо")
+Person(front_office, "Сотрудник фронт-офиса", "500 человек")
+Person(deposit_manager, "Менеджер депозитного отдела", "50 человек")
+Person(call_operator, "Оператор кол-центра", "200 человек")
+
+System_Boundary(bank, "Банковская система Стандарт") {
+    
+    Container(website, "Веб-сайт", "PHP + React.js", "Маркетинг и заявки")
+    Container(internet_bank, "Интернет-банк", "ASP.NET + MS SQL", "Платежи и счета")
+    Container(abs, "АБС", "Delphi + Oracle", "Банковская система")
+    Container(cc_system, "Система кол-центра", "Java + PostgreSQL", "Обработка обращений")
+    
+    Container(api_gateway, "API Gateway", ".NET Core", "Единая точка входа")
+    Container(rate_service, "Сервис ставок", "Java + MS SQL", "Управление ставками")
+    Container(message_queue, "Очередь заявок", "RabbitMQ", "Асинхронная обработка")
+    Container(notification_service, "Сервис уведомлений", "Java", "Отправка СМС")
+    ContainerDb(cache, "Кэш", "Redis", "Кэширование данных")
+}
+
+System_Ext(telecom, "Телеком-оператор", "СМС-шлюз")
+System_Ext(partner_cc, "Партнерский кол-центр", "Внешняя система")
+
+Rel(client, website, "Просмотр и заявки", "HTTPS")
+Rel(client, internet_bank, "Платежи и счета", "HTTPS")
+Rel(client, cc_system, "Консультации", "SIP")
+
+Rel(front_office, abs, "Обслуживание", "Desktop")
+Rel(deposit_manager, abs, "Обработка заявок", "Desktop")
+Rel(call_operator, cc_system, "Обработка", "Web UI")
+
+Rel(website, api_gateway, "Заявки", "HTTPS")
+Rel(internet_bank, api_gateway, "API вызовы", "HTTPS")
+
+Rel(api_gateway, rate_service, "Запросы ставок", "HTTPS")
+Rel(api_gateway, message_queue, "Отправка заявок", "AMQP")
+
+Rel(message_queue, abs, "Обработка", "Oracle")
+Rel(abs, notification_service, "События", "HTTPS")
+
+Rel(notification_service, telecom, "СМС", "API")
+Rel(cc_system, partner_cc, "Скрипты", "API")
+
+Rel(api_gateway, cache, "Кэш", "Redis")
+Rel(rate_service, cache, "Кэш", "Redis")
+
+Rel(internet_bank, abs, "Прямой доступ", "JDBC")
+
+@enduml
