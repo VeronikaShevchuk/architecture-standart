@@ -1,0 +1,34 @@
+@startuml C4Container_CallCenterRates
+!include templates\C4_Container.puml
+
+title Диаграмма контейнеров - Интеграция кол-центров с сервисом ставок
+
+Person(operator, "Оператор кол-центра", "Консультирует клиентов")
+Person(partner_operator, "Оператор партнерского КЦ", "Консультирует в аутсорсинге")
+
+System_Boundary(bank, "Банк Стандарт") {
+    Container(cc_system, "Система кол-центра", "Java Spring Boot + PostgreSQL", "Обработка обращений")
+    
+    Container(rate_service, "Сервис ставок", "Java Spring Boot + MS SQL", "Управление ставками")
+    
+    Container(rate_api, "Rate API", "Java Spring Boot", "API для доступа к ставкам")
+    
+    Container(sftp_server, "SFTP Сервер", "SFTP", "Выгрузка файлов для партнера")
+    
+    ContainerDb(rate_cache, "Кэш ставок", "Redis", "Кэширование для производительности")
+}
+
+System_Ext(partner_system, "Система партнерского КЦ", "Внешняя система", "Принимает файлы по SFTP")
+
+Rel(operator, cc_system, "Работает с интерфейсом", "Web UI")
+Rel(partner_operator, partner_system, "Работает с интерфейсом", "Web UI")
+
+Rel(cc_system, rate_api, "Запросы ставок", "REST/HTTPS")
+Rel(rate_api, rate_service, "Доступ к данным", "REST/HTTPS")
+Rel(rate_service, sftp_server, "Выгрузка файлов", "SFTP")
+Rel(sftp_server, partner_system, "Передача файлов", "SFTP")
+
+Rel(rate_api, rate_cache, "Кэширование", "Redis")
+Rel(cc_system, rate_cache, "Кэширование", "Redis")
+
+@enduml
