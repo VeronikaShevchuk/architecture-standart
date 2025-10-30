@@ -1,0 +1,117 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36" version="28.2.8">
+  <diagram name="C4 Container Diagram - Банк Стандарт" id="0">
+    <mxGraphModel dx="2034" dy="1110" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="system" value="Банк Стандарт&#xa;Банковская система" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;strokeWidth=2;fontSize=16;" parent="1" vertex="1">
+          <mxGeometry x="200" y="40" width="600" height="600" as="geometry" />
+        </mxCell>
+        <mxCell id="website" value="Веб-сайт&#xa;[PHP + React.js]&#xa;&#xa;Предоставляет маркетинговую&#xa;информацию и заявки&#xa;на продукты" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry x="250" y="100" width="180" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="internet_bank" value="Интернет-банк&#xa;[ASP.NET MVC + MS SQL]&#xa;&#xa;Проведение платежей&#xa;Открытие текущих счетов&#xa;Монолит на платформе&#xa;подрядчика" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry x="250" y="250" width="180" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="abs" value="АБС (Автоматизированная&#xa;Банковская Система)&#xa;[Delphi + Oracle + PL/SQL]&#xa;&#xa;Учет операций по счетам&#xa;Бухгалтерия&#xa;Ядро банковской системы" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry x="250" y="420" width="180" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="callcenter" value="Система кол-центра&#xa;[Java Spring Boot +&#xa;PostgreSQL + React.js]&#xa;&#xa;Обработка обращений&#xa;CRM функционал&#xa;Микросервисная архитектура" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry x="470" y="100" width="180" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="sms_gateway" value="СМС шлюз&#xa;[Внешний телеком-оператор]&#xa;&#xa;Отправка уведомлений&#xa;клиентам" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry x="470" y="270" width="180" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="partner_cc" value="Партнерский кол-центр&#xa;[Внешняя система]&#xa;&#xa;Обработка звонков&#xa;по готовым скриптам" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;strokeWidth=2;dashed=1;" parent="1" vertex="1">
+          <mxGeometry x="470" y="400" width="180" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="excel" value="Excel файлы&#xa;[Ручные процессы]&#xa;&#xa;Расчет ставок&#xa;Анализ рисков&#xa;Ежедневное обновление" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;strokeWidth=2;dashed=1;" parent="1" vertex="1">
+          <mxGeometry x="470" y="530" width="180" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="client" value="Клиент&#xa;Физическое лицо" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="970" y="330" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="front_office" value="Сотрудник&#xa;фронт-офиса" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="100" y="400" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="back_office" value="Сотрудник&#xa;бэк-офиса" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="100" y="560" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="cc_operator" value="Оператор&#xa;кол-центра" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#ffffff;strokeColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="100" y="260" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="conn1" value="Просмотр информации&#xa;Подача заявок" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;dashed=1;" parent="1" source="client" target="website" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="440" y="160" as="sourcePoint" />
+            <mxPoint x="490" y="110" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn2" value="Платежи&#xa;Открытие счетов" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;dashed=1;" parent="1" source="client" target="internet_bank" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="440" y="260" as="sourcePoint" />
+            <mxPoint x="490" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn3" value="Телефонные звонки&#xa;Консультации" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;dashed=1;" parent="1" source="client" target="callcenter" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="440" y="360" as="sourcePoint" />
+            <mxPoint x="490" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn4" value="СМС уведомления" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;dashed=1;" parent="1" source="sms_gateway" target="client" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="440" y="460" as="sourcePoint" />
+            <mxPoint x="490" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn5" value="Обслуживание клиентов&#xa;Открытие продуктов" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;" parent="1" source="front_office" target="abs" edge="1">
+          <mxGeometry x="-0.166" y="39" width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="440" y="260" as="sourcePoint" />
+            <mxPoint x="490" y="210" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn6" value="Обработка заявок&#xa;Управление продуктами" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;" parent="1" source="back_office" target="abs" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="440" y="360" as="sourcePoint" />
+            <mxPoint x="490" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn7" value="Расчет ставок&#xa;Анализ рисков" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;dashed=1;" parent="1" source="back_office" target="excel" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="440" y="460" as="sourcePoint" />
+            <mxPoint x="490" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn8" value="Обработка обращений&#xa;Ввод данных" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;" parent="1" source="cc_operator" target="callcenter" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="440" y="460" as="sourcePoint" />
+            <mxPoint x="490" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn9" value="Прямой доступ к БД&#xa;Синхронизация данных&#xa;(интеграция)" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#FF0000;" parent="1" source="internet_bank" target="abs" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="440" y="320" as="sourcePoint" />
+            <mxPoint x="490" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn10" value="Передача заявок&#xa;Синхронизация данных&#xa;(интеграция)" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;" parent="1" source="callcenter" target="abs" edge="1">
+          <mxGeometry x="-0.58" y="-31" width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="440" y="320" as="sourcePoint" />
+            <mxPoint x="490" y="270" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn11" value="Отправка уведомлений&#xa;(интеграция)" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;" parent="1" source="abs" target="sms_gateway" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="440" y="420" as="sourcePoint" />
+            <mxPoint x="490" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend" value="&lt;b&gt;КЛЮЧЕВЫЕ ПРОБЛЕМЫ:&lt;/b&gt;&lt;br&gt;• Ручные процессы в Excel&lt;br&gt;• Отсутствие онлайн-депозитов&lt;br&gt;• Разрозненность данных&lt;br&gt;• Дублирование функционала&lt;br&gt;&lt;br&gt;&lt;b&gt;ТЕХНОЛОГИЧЕСКИЙ СТЕК:&lt;/b&gt;&lt;br&gt;• .NET Framework 4.5 + MS SQL&lt;br&gt;• Delphi + Oracle + PL/SQL&lt;br&gt;• Java Spring Boot + PostgreSQL&lt;br&gt;• PHP + React.js" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;" parent="1" vertex="1">
+          <mxGeometry x="830" y="30" width="250" height="200" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,32 @@
+@startuml C4Context_StandardBank
+!include templates\C4_Context.puml
+
+title Контекстная диаграмма - Банк "Стандарт"
+
+Person(client, "Клиент", "Физическое лицо, использует банковские услуги")
+Person(front_office, "Сотрудник фронт-офиса", "Обслуживает клиентов в отделениях")
+Person(deposit_manager, "Менеджер депозитного отдела", "Обрабатывает заявки на депозиты")
+Person(call_operator, "Оператор кол-центра", "Консультирует клиентов по телефону")
+
+System(bank_system, "Банковская система Стандарт", "Предоставляет банковские услуги")
+
+System_Ext(telecom, "Телеком-оператор", "Внешний провайдер СМС-услуг")
+System_Ext(partner_cc, "Партнерский кол-центр", "Внешний аутсорсинговый кол-центр")
+
+Rel(client, bank_system, "Подает заявки на депозиты", "HTTPS")
+Rel(front_office, bank_system, "Обслуживает клиентов")
+Rel(deposit_manager, bank_system, "Обрабатывает заявки")
+Rel(call_operator, bank_system, "Консультирует клиентов")
+
+Rel(bank_system, telecom, "Отправляет СМС", "API")
+Rel(bank_system, partner_cc, "Передает скрипты", "API")
+
+legend right
+  Бизнес-контекст MVP
+  Цель: Цифровизация депозитного направления
+  Сроки: MVP через 6 месяцев
+  Каналы: Сайт и интернет-банк
+  Технологии: .NET, Java, Oracle, MS SQL
+end legend
+
+@enduml

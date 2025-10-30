@@ -1,0 +1,20 @@
+@startuml C4Context_CallCenterRates
+!include templates\C4_Context.puml
+
+title Контекстная диаграмма - Интеграция кол-центров с сервисом ставок
+
+Person(operator, "Оператор кол-центра", "Консультирует клиентов по телефону")
+Person(partner_operator, "Оператор партнерского КЦ", "Консультирует клиентов в аутсорсинговом КЦ")
+
+System(cc_system, "Система кол-центра", "Обработка звонков и консультаций")
+System(rate_service, "Сервис ставок", "Управление ставками по депозитам")
+
+System_Ext(partner_system, "Система партнерского КЦ", "Внешняя система аутсорсингового кол-центра")
+
+Rel(operator, cc_system, "Консультирует клиентов", "Web UI")
+Rel(partner_operator, partner_system, "Консультирует клиентов", "Web UI")
+
+Rel(cc_system, rate_service, "Запрашивает актуальные ставки", "REST API")
+Rel(rate_service, partner_system, "Передает файлы со ставками", "SFTP")
+
+@enduml
